@@ -1,0 +1,117 @@
+/*global styles*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	--primary-bg-color: #FF0000;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+a, a:hover, a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+
+img {
+	width: 100%;
+}
+
+
+
+/*end global styles*/
+
+/*start header*/
+
+.topbar {
+	background-color: black;
+	color: #fff;
+}
+
+.header-container {
+	height: 32px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1100px;
+	margin: auto;
+}
+
+.header-container i {
+	padding-right: 6px;
+}
+
+.header {
+	display: flex;
+}
+
+.header > div {
+	display: flex;
+}
+
+.phone-number {
+	margin-right: 15px;
+}
+
+/* end header*/
+
+/*start logo nav*/
+
+.company-name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Kalam', cursive;
+	height: 110px;
+	font-size: 5rem;
+}
+
+/*end logo nav*/
+
+/*start nav*/
+
+.nav-outer-container {
+	background-color: var(--primary-bg-color);
+}
+
+.nav-inner-container {
+	height: 50px;
+	max-width: 500px;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+.nav-inner-container a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 1.1rem;
+}
+
+.nav-inner-container a:hover div {
+	border: 1px solid #fff;
+	width: 100%;
+}
+
+.nav-inner-container a div {
+	transition: width 0.5s linear 0s;
+	width: 0;
+	margin-top: 5px;
+}
+
+/*end nav*/
+
+/*start showcase*/
+
+.showcase-inner-container {
+	width: 100%;
+}
+
+.showcase-inner-container img {
+	height: auto;
+	opacity: 0.8;
+}
