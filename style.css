@@ -8,6 +8,7 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
+	line-height: 1.5;
 }
 
 a, a:hover, a:visited {
@@ -17,6 +18,19 @@ a, a:hover, a:visited {
 
 img {
 	width: 100%;
+	height: auto;
+}
+
+input:focus, textarea:focus, buton:focus {
+	outline: none;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+p {
+	font-size: 1.2rem;
 }
 
 
@@ -90,10 +104,11 @@ img {
 	justify-content: center;
 	flex-direction: column;
 	font-size: 1.1rem;
+	font-weight: bold;
 }
 
 .nav-inner-container a:hover div {
-	border: 1px solid #fff;
+	border: 1px solid #000;
 	width: 100%;
 }
 
@@ -109,9 +124,137 @@ img {
 
 .showcase-inner-container {
 	width: 100%;
+	position: relative;
 }
 
 .showcase-inner-container img {
 	height: auto;
+	display: block;
 	opacity: 0.8;
 }
+
+.search-container {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(0, 0, 0, 0.2);
+	padding: 20px;
+	border-radius: 10px;
+	border: 3px solid black;
+}	
+
+.search-container form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.search-bar-container input {
+	width: 300px;
+	height: 40px;
+	font-size: 1.8rem;
+	background: transparent;
+	border: 0;
+	border-bottom: 3px solid #000;
+	color: #000;
+}
+
+::placeholder {
+	color: #000;
+}
+
+.search-submit-container input {
+	margin-top: 30px;
+	font-size: 1.5rem;
+	background-color: var(--primary-bg-color);
+	color: #000;
+	border: none;
+	padding: 5px;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+/*end showcase*/
+
+/*start 'how it works' section*/
+
+.how-it-works {
+	max-width: 810px;
+	padding: 50px 20px;
+	margin: auto;
+}
+
+.how-it-works h1 {
+	border-bottom: 3px solid var(--primary-bg-color);
+	display: inline;
+}
+
+.how-container {
+	display: flex;
+	/*align-items: center;*/
+	margin-top: 40px;
+}
+
+.how-container p {
+	flex-basis: 500px;
+	padding-left: 45px;
+}
+
+.how-image-container{
+	flex-basis: 290px;
+}
+
+/*end 'how it works' section*/
+
+/*start 'social media' section*/
+
+.social-media {
+	background-color: var(--primary-bg-color);
+	height: 200px;
+}
+
+.social-media-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+}
+
+.social-media-container h3 {
+	font-size: 2.5rem;
+}
+
+.social-icons-container {
+	width: 200px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.social-icons-container i {
+	font-size: 2rem;
+}
+
+.social-icons-container i:hover {
+	cursor: pointer;
+}
+
+/*end 'social media' section*/
+
+/*start 'find a pet' section*/
+
+.find-a-pet {
+	max-width: 1100px;
+	margin: auto;
+	padding: 50px 20px;
+}
+
+.find-a-pet h1 {
+	border-bottom: 3px solid var(--primary-bg-color);
+	display: inline;
+}
+
+
+
