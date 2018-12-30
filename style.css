@@ -37,6 +37,19 @@ p {
 
 /*end global styles*/
 
+/*start utility classes*/
+
+.highlight-red {
+	border-color: var(--primary-bg-color) !important;
+	color: var(--primary-bg-color);
+}
+
+.hide {
+	display: none;
+}
+
+/*end utility classes*/
+
 /*start header*/
 
 .topbar {
@@ -141,7 +154,7 @@ p {
 	background: rgba(0, 0, 0, 0.2);
 	padding: 20px;
 	border-radius: 10px;
-	border: 3px solid black;
+	border: 2px solid black;
 }	
 
 .search-container form {
@@ -182,7 +195,7 @@ p {
 
 .how-it-works {
 	max-width: 810px;
-	padding: 50px 20px;
+	padding: 80px 20px;
 	margin: auto;
 }
 
@@ -248,7 +261,7 @@ p {
 .find-a-pet {
 	max-width: 1100px;
 	margin: auto;
-	padding: 50px 20px;
+	padding: 80px 20px;
 }
 
 .find-a-pet h1 {
@@ -279,7 +292,44 @@ p {
 	color: var(--primary-bg-color);
 }
 
-.dog-container {
-	max-width: 100px;
-	display: inline-block;
+.dog-list {
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-column-gap: 20px;
+	grid-row-gap: 40px;
+}
+
+.breed-container {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	/*padding: 5px;*/
+	border-radius: 5px;
+	background-color: #F5F5F5;
+}
+
+.breed-container img {
+	display: block;
+}
+
+.description-container {
+	padding: 10px;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.breed-name {
+	font-weight: bold;
+	font-size: 1.3rem;
+	padding-bottom: 10px;
+	line-height: 1.2;
+}
+
+.breed-info, .breed-available {
+	font-size: 0.9rem;
+
+}
+
+.stock-num {
+	font-weight: bold;
+	color: var(--primary-bg-color);
 }
