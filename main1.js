@@ -1,7 +1,10 @@
 let domElements = {
 	alphabetContainer: document.querySelector('.browse-by-alphabet-container'),
 	alphabetLetters: document.querySelectorAll('.letter'),
-	breedNames: document.querySelectorAll('.breed-name')
+	breedNames: document.querySelectorAll('.breed-name'),
+	breedInput: document.getElementById('input-breed'),
+	searchContainer: document.querySelector('.search-bar-container'),
+	searchBtn: document.getElementById('search-btn')
 }
 
 let breedObjects = [];
@@ -47,8 +50,7 @@ Breed.prototype.addBreedToPage = function(dog) {
 								</div>
 
 								<div class='description-container'>
-									<p class='breed-name'>${dog.modifiedName}
-									</p>
+									<p class='breed-name'>${dog.modifiedName}</p>
 									<p class='breed-info'>
 										<span>Info:</span> ${dog.info}
 									</p>
@@ -75,16 +77,19 @@ domElements.breedNames = document.querySelectorAll('.breed-name');
 
 // alphabet event listeners
 domElements.alphabetContainer.addEventListener('click', function(e){
+	// if the clicked element is a letter highlight it red
 	if(e.target.classList.contains('letter')) {
 		e.target.classList.add('highlight-red');
 	}
 
+	// if the letters were not clicked then remove the red highlight
 	domElements.alphabetLetters.forEach( el => {
 		if(e.target !== el) {
 			el.classList.remove('highlight-red');
 		}
 	});
 
+	// hide the dogs that dont match the chosen letter name
 	domElements.breedNames.forEach( el => {
 		if(e.target.classList.contains('letter')) {
 			if(e.target.textContent == el.textContent.charAt(0)) {
@@ -94,6 +99,104 @@ domElements.alphabetContainer.addEventListener('click', function(e){
 			}
 		}
 	});
-
-
 });
+
+
+// breed search code
+domElements.breedInput.addEventListener('keyup', function(e) {
+	let matchingBreeds = getMatchingBreeds(this.value);
+	displayMatchingBreeds(matchingBreeds);
+});
+
+function getMatchingBreeds(input) {
+	// initialie matching breeds array
+	let matchingBreeds = [];
+
+	// convert breed names to lower case and remove hyphens for validation purposes
+	let modifiedBreedNames = breedNames.map( e => {
+		e = e.toLowerCase();
+		e = e.replace(/-/g, ' ');
+		return e;
+	});
+
+	// check if the input value matches any breed names and if so add them to array
+	modifiedBreedNames.forEach( e => {
+		if(e.indexOf(input) === 0) {
+			matchingBreeds.push(e);
+		}
+	});
+
+	//return matchingBreeds array
+	return matchingBreeds;
+}
+
+function displayMatchingBreeds(breedsArray) {
+	let resultsContainerCheck = document.querySelector('.results-container');
+	let resultsContainer;
+
+	if(resultsContainerCheck) {
+		domElements.searchContainer.removeChild(resultsContainerCheck);
+	}
+
+	if(breedsArray.length > 0) {
+		//create the results div container
+		resultsContainer = document.createElement('div');
+		resultsContainer.classList.add('results-container');
+
+		for(let i = 0; i < breedsArray.length; i++) {
+			// create the matching breed element
+			let matchContainer = document.createElement('div');
+			matchContainer.classList.add('match-container');
+			matchContainer.innerHTML = `${breedsArray[i]}`;
+
+			// attach event listener
+			matchContainer.addEventListener('click', updateSearchInput)
+
+			// append the match to the results container
+			resultsContainer.appendChild(matchContainer);
+
+			// append the results container to search bar container
+			domElements.searchContainer.appendChild(resultsContainer);
+		}
+	}
+
+	function updateSearchInput(e) {
+		// store clicked breed in variable
+		let breedName = e.target.textContent;
+
+		// update input value with breed
+		domElements.breedInput.value = breedName;
+
+		// put focus back on input
+		domElements.breedInput.focus();
+
+		// remove the results container
+		resultsContainer.remove();
+	}
+}
+
+// search event listener
+domElements.searchBtn.addEventListener('click', showBreed);
+
+function showBreed(e) {
+	// prevent form from submitting
+	e.preventDefault();
+
+	// grab the input value
+	let input = domElements.breedInput.value;
+	
+	// hide all the other breeds and only display the inputted one
+	domElements.breedNames.forEach(e => {
+		if(e.textContent.toUpperCase() == input.toUpperCase()) {
+			e.parentNode.parentNode.classList.remove('hide');
+			e.parentNode.parentNode.scrollIntoView();
+		} else {
+			e.parentNode.parentNode.classList.add('hide');
+		}
+	})
+}
+
+
+window.addEventListener('keyup', e => {
+	console.log(e.key)
+})

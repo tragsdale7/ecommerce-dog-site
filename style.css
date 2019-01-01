@@ -35,6 +35,17 @@ p {
 
 
 
+
+
+
+
+select {
+	overflow-y: auto;
+	max-height: 30px;
+}
+
+
+
 /*end global styles*/
 
 /*start utility classes*/
@@ -164,6 +175,10 @@ p {
 	flex-direction: column;
 }
 
+.search-bar-container {
+	position: relative;
+}
+
 .search-bar-container input {
 	width: 300px;
 	height: 40px;
@@ -172,6 +187,24 @@ p {
 	border: 0;
 	border-bottom: 3px solid #000;
 	color: #000;
+}
+
+.results-container {
+	position: absolute;
+	background-color: white;
+	width: 300px;
+	border: 1px solid black;
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+.match-container {
+	/*border-bottom: 1px solid black;*/
+	padding: 5px;
+}
+
+.match-container:hover {
+	background-color: #F5F5F5;
 }
 
 ::placeholder {

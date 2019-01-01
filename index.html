@@ -53,9 +53,9 @@
 
 	<section class='nav-outer-container'>
 		<nav class="nav-inner-container">
-			<a href="#">FIND A PET <div class="slider"></div></a>
-			<a href="#">HOW IT WORKS <div class="slider"></div></a>
-			<a href="#">STORE <div class="slider"></div></a>
+			<a href="#find-link">FIND A PET <div class="slider"></div></a>
+			<a href="#how-link">HOW IT WORKS <div class="slider"></div></a>
+			<a href="#social-link">STORE <div class="slider"></div></a>
 			<a href="#">JOIN/LOG IN <div class="slider"></div></a>
 		</nav>
 	</section>
@@ -66,17 +66,17 @@
 			<div class="search-container">
 				<form action="#">
 					<div class="search-bar-container">
-						<input type="text" placeholder="Enter a breed here...">
+						<input type="text" placeholder="Enter a breed here..." id='input-breed' autocomplete="off">
 					</div>
 					<div class="search-submit-container">
-						<input type="submit" value="Search">
+						<input type="submit" value="Search" id='search-btn'>
 					</div>
 				</form>
 			</div>
 		</div>
 	</section>
 
-	<section class='how-it-works'>
+	<section class='how-it-works' id='how-link'>
 		<h1>How It Works</h1>
 		<div class="how-container">
 			<div class="how-image-container">
@@ -104,7 +104,7 @@
 		</div>
 	</section>
 
-	<section class="find-a-pet">
+	<section class="find-a-pet" id='find-link'>
 		<h1>Find A Pet</h1>
 		<div class="browse-by-alphabet-container">
 			<div class="letter">A</div>
