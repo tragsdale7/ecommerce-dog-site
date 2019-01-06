@@ -101,12 +101,26 @@ domElements.alphabetContainer.addEventListener('click', function(e){
 	});
 });
 
-
-// breed search code
+// breed search input
 domElements.breedInput.addEventListener('keyup', function(e) {
 	let matchingBreeds = getMatchingBreeds(this.value);
 	displayMatchingBreeds(matchingBreeds);
 });
+
+domElements.breedInput.addEventListener('click', function(e){
+	let event = new Event('keyup');
+	domElements.breedInput.dispatchEvent(event);
+})
+
+// remove results if user clicks off of the container
+window.addEventListener('click', function(e){
+	console.log(e.target);
+	let el = domElements.searchContainer;
+	if(e.target !== el && !el.contains(e.target)) {
+		let res = document.querySelector('.results-container');
+		res.parentNode.removeChild(res);
+	}
+})
 
 function getMatchingBreeds(input) {
 	// initialie matching breeds array
